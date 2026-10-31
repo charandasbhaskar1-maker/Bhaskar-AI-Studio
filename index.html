@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<title>Bhaskar AI Studio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080b12;color:#f5f7ff;font-family:Arial,sans-serif}
+header{padding:20px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #20283a;position:sticky;top:0;background:#0b101c;z-index:5}
+.logo{font-size:21px;font-weight:800}
+.logo span{color:#8b6cff}
+.menu{background:#171e2d;border:1px solid #30394d;color:white;padding:10px 14px;border-radius:10px}
+main{max-width:1100px;margin:auto;padding:24px 16px}
+.hero{padding:30px 22px;border:1px solid #30304d;border-radius:20px;background:linear-gradient(130deg,#21194b,#101b32 65%,#102b38)}
+.hero small{color:#39dcff;letter-spacing:2px;font-weight:bold}
+h1{font-size:32px;line-height:1.2;margin:14px 0}
+.hero p,.muted{color:#aab5c9;line-height:1.6}
+.primary{background:#8057ff;color:white;border:0;padding:13px 18px;border-radius:10px;font-weight:bold;margin-top:10px}
+.section-title{margin:30px 0 15px;font-size:20px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tool{background:#131b2a;border:1px solid #283348;border-radius:15px;padding:17px;min-height:125px}
+.tool .symbol{font-size:25px;margin-bottom:12px}
+.tool h3{font-size:15px;margin:0 0 8px}
+.tool p{font-size:12px;color:#9aa8bd;line-height:1.5;margin:0}
+.tag{display:inline-block;font-size:10px;color:#37d9ff;margin-top:12px}
+.wide{grid-column:1/-1}
+footer{text-align:center;padding:30px 10px;color:#77849a;font-size:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}h1{font-size:44px}.hero{padding:48px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✦ Bhaskar <span>AI Studio</span></div>
+  <button class="menu" onclick="alert('More tools coming soon!')">☰ Menu</button>
+</header>
+<main>
+  <section class="hero">
+    <small>YOUR ALL-IN-ONE CREATIVE STUDIO</small>
+    <h1>Create Anything.<br>Bring Imagination to Life.</h1>
+    <p>AI Video, Professional Editing, Photo Studio, Hollywood VFX, Voice and Music — all in one place.</p>
+    <button class="primary" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Explore Studio →</button>
+  </section>
+
+  <h2 class="section-title" id="tools">Your Creative Studio</h2>
+  <div class="grid">
+    <div class="tool"><div class="symbol">🎬</div><h3>AI Video Creator</h3><p>Turn your stories and ideas into realistic videos.</p><span class="tag">COMING SOON</span></div>
+    <div class="tool"><div class="symbol">✂️</div><h3>Professional Video Editor</h3><p>Timeline, layers, transitions and video effects.</p><span class="tag">COMING SOON</span></div>
+    <div class="tool"><div class="symbol">📸</div><h3>AI Photo Studio</h3><p>Retouch, enhance and transform your photos.</p><span class="tag">COMING SOON</span></div>
+    <div class="tool"><div class="symbol">⚡</div><h3>Hollywood VFX</h3><p>Create fire, lightning, portals and custom visual effects.</p><span class="tag">COMING SOON</span></div>
+    <div class="tool"><div class="symbol">🎙️</div><h3>AI Voice Studio</h3><p>Voiceovers, dialogue and multilingual speech.</p><span class="tag">COMING SOON</span></div>
+    <div class="tool"><div class="symbol">🎵</div><h3>AI Music Studio</h3><p>Create original music and sound effects.</p><span class="tag">COMING SOON</span></div>
+    <div class="tool"><div class="symbol">🧊</div><h3>3D & Animation</h3><p>Build 3D scenes, animation and motion graphics.</p><span class="tag">COMING SOON</span></div>
+    <div class="tool"><div class="symbol">🖼️</div><h3>AI Image Generator</h3><p>Generate creative images from text prompts.</p><span class="tag">COMING SOON</span></div>
+    <div class="tool"><div class="symbol">📁</div><h3>My Projects</h3><p>Your future workspace for saved creative projects.</p><span class="tag">COMING SOON</span></div>
+  </div>
+  <footer>© 2026 Bhaskar AI Studio · Imagine. Create. Inspire.</footer>
+</main>
+</body>
+</html>
