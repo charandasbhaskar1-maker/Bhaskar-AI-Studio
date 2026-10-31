@@ -3,60 +3,193 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080b12">
 <title>Bhaskar AI Studio</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#080b12;color:#f5f7ff;font-family:Arial,sans-serif}
-header{padding:20px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #20283a;position:sticky;top:0;background:#0b101c;z-index:5}
-.logo{font-size:21px;font-weight:800}
-.logo span{color:#8b6cff}
-.menu{background:#171e2d;border:1px solid #30394d;color:white;padding:10px 14px;border-radius:10px}
-main{max-width:1100px;margin:auto;padding:24px 16px}
-.hero{padding:30px 22px;border:1px solid #30304d;border-radius:20px;background:linear-gradient(130deg,#21194b,#101b32 65%,#102b38)}
-.hero small{color:#39dcff;letter-spacing:2px;font-weight:bold}
-h1{font-size:32px;line-height:1.2;margin:14px 0}
-.hero p,.muted{color:#aab5c9;line-height:1.6}
-.primary{background:#8057ff;color:white;border:0;padding:13px 18px;border-radius:10px;font-weight:bold;margin-top:10px}
-.section-title{margin:30px 0 15px;font-size:20px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.tool{background:#131b2a;border:1px solid #283348;border-radius:15px;padding:17px;min-height:125px}
-.tool .symbol{font-size:25px;margin-bottom:12px}
-.tool h3{font-size:15px;margin:0 0 8px}
-.tool p{font-size:12px;color:#9aa8bd;line-height:1.5;margin:0}
-.tag{display:inline-block;font-size:10px;color:#37d9ff;margin-top:12px}
-.wide{grid-column:1/-1}
-footer{text-align:center;padding:30px 10px;color:#77849a;font-size:12px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}h1{font-size:44px}.hero{padding:48px}}
+header{position:sticky;top:0;z-index:10;background:#0d1220;border-bottom:1px solid #293249;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:bold}.logo span{color:#9675ff}
+button{cursor:pointer;border:0;border-radius:10px;padding:12px 17px;font-weight:bold}
+.menuBtn{background:#20283a;color:white;border:1px solid #38435a}
+main{max-width:1050px;margin:auto;padding:22px 16px}
+.hero{padding:30px 22px;border-radius:20px;background:linear-gradient(135deg,#26194e,#111c35,#10303a);border:1px solid #39365d}
+.hero small{color:#35dcff;font-weight:bold;letter-spacing:2px}
+h1{font-size:35px;line-height:1.2}
+.muted{color:#aab5c9;line-height:1.6}
+.purple{background:#8057ff;color:white}
+.section{margin-top:30px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.tool{background:#141c2c;border:1px solid #303b52;padding:17px;border-radius:16px;color:white;text-decoration:none;display:block}
+.tool b{display:block;margin:10px 0}
+.tool p{font-size:13px;color:#aab5c9;line-height:1.5}
+.symbol{font-size:27px}
+#drawer{display:none;position:fixed;z-index:20;right:12px;top:75px;width:230px;padding:14px;background:#171e2e;border:1px solid #45506a;border-radius:15px;box-shadow:0 10px 35px #000}
+#drawer a{display:block;padding:13px;color:white;text-decoration:none;border-bottom:1px solid #30394c}
+input,textarea,select{width:100%;padding:14px;background:#0c1220;border:1px solid #39445c;border-radius:10px;color:white;margin:8px 0 16px;font:inherit}
+textarea{min-height:150px;resize:vertical}
+label{font-size:14px;color:#cbd5e5}
+.panel{background:#141c2c;border:1px solid #303b52;border-radius:16px;padding:18px}
+.scene{padding:14px;margin-top:12px;background:#0c1422;border:1px solid #35415b;border-radius:12px}
+.scene h3{color:#45dafa;margin-top:0}
+.notice{font-size:12px;color:#f6c96b;line-height:1.5}
+footer{text-align:center;padding:30px;color:#78869d;font-size:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}h1{font-size:46px}.hero{padding:48px}}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">✦ Bhaskar <span>AI Studio</span></div>
-  <button class="menu" onclick="alert('More tools coming soon!')">☰ Menu</button>
-</header>
-<main>
-  <section class="hero">
-    <small>YOUR ALL-IN-ONE CREATIVE STUDIO</small>
-    <h1>Create Anything.<br>Bring Imagination to Life.</h1>
-    <p>AI Video, Professional Editing, Photo Studio, Hollywood VFX, Voice and Music — all in one place.</p>
-    <button class="primary" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Explore Studio →</button>
-  </section>
 
-  <h2 class="section-title" id="tools">Your Creative Studio</h2>
-  <div class="grid">
-    <div class="tool"><div class="symbol">🎬</div><h3>AI Video Creator</h3><p>Turn your stories and ideas into realistic videos.</p><span class="tag">COMING SOON</span></div>
-    <div class="tool"><div class="symbol">✂️</div><h3>Professional Video Editor</h3><p>Timeline, layers, transitions and video effects.</p><span class="tag">COMING SOON</span></div>
-    <div class="tool"><div class="symbol">📸</div><h3>AI Photo Studio</h3><p>Retouch, enhance and transform your photos.</p><span class="tag">COMING SOON</span></div>
-    <div class="tool"><div class="symbol">⚡</div><h3>Hollywood VFX</h3><p>Create fire, lightning, portals and custom visual effects.</p><span class="tag">COMING SOON</span></div>
-    <div class="tool"><div class="symbol">🎙️</div><h3>AI Voice Studio</h3><p>Voiceovers, dialogue and multilingual speech.</p><span class="tag">COMING SOON</span></div>
-    <div class="tool"><div class="symbol">🎵</div><h3>AI Music Studio</h3><p>Create original music and sound effects.</p><span class="tag">COMING SOON</span></div>
-    <div class="tool"><div class="symbol">🧊</div><h3>3D & Animation</h3><p>Build 3D scenes, animation and motion graphics.</p><span class="tag">COMING SOON</span></div>
-    <div class="tool"><div class="symbol">🖼️</div><h3>AI Image Generator</h3><p>Generate creative images from text prompts.</p><span class="tag">COMING SOON</span></div>
-    <div class="tool"><div class="symbol">📁</div><h3>My Projects</h3><p>Your future workspace for saved creative projects.</p><span class="tag">COMING SOON</span></div>
-  </div>
-  <footer>© 2026 Bhaskar AI Studio · Imagine. Create. Inspire.</footer>
+<header>
+ <div class="logo">✦ Bhaskar <span>AI Studio</span></div>
+ <button class="menuBtn" onclick="toggleMenu()">☰ Menu</button>
+</header>
+
+<nav id="drawer">
+ <a href="#home" onclick="toggleMenu()">Home</a>
+ <a href="#tools" onclick="toggleMenu()">All Tools</a>
+ <a href="#creator" onclick="toggleMenu()">AI Video Creator</a>
+ <a href="#projects" onclick="toggleMenu()">My Projects</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+ <small>YOUR ALL-IN-ONE CREATIVE STUDIO</small>
+ <h1>Create Anything.<br>Bring Imagination to Life.</h1>
+ <p class="muted">AI Video, Professional Editing, Photo Studio, Hollywood VFX, Voice and Music — all in one place.</p>
+ <button class="purple" onclick="document.getElementById('creator').scrollIntoView({behavior:'smooth'})">Start Creating →</button>
+</section>
+
+<section class="section" id="tools">
+ <h2>Your Creative Studio</h2>
+ <div class="grid">
+  <a class="tool" href="#creator"><div class="symbol">🎬</div><b>AI Video Creator</b><p>Create a video storyboard from your story.</p></a>
+  <a class="tool" href="#editor"><div class="symbol">✂️</div><b>Professional Video Editor</b><p>Timeline and video editing workspace.</p></a>
+  <a class="tool" href="#photo"><div class="symbol">📸</div><b>AI Photo Studio</b><p>Photo enhancement and editing.</p></a>
+  <a class="tool" href="#vfx"><div class="symbol">⚡</div><b>Hollywood VFX</b><p>Fire, lightning, portals and custom effects.</p></a>
+  <a class="tool" href="#voice"><div class="symbol">🎙️</div><b>AI Voice Studio</b><p>Voiceovers and dialogue creation.</p></a>
+  <a class="tool" href="#music"><div class="symbol">🎵</div><b>AI Music Studio</b><p>Music and sound effects.</p></a>
+  <a class="tool" href="#3d"><div class="symbol">🧊</div><b>3D & Animation</b><p>3D scenes and animation.</p></a>
+  <a class="tool" href="#image"><div class="symbol">🖼️</div><b>AI Image Generator</b><p>Generate images from prompts.</p></a>
+  <a class="tool" href="#projects"><div class="symbol">📁</div><b>My Projects</b><p>Your creative workspace.</p></a>
+ </div>
+</section>
+
+<section class="section panel" id="creator">
+ <h2>🎬 AI Video Creator</h2>
+ <p class="muted">अपनी कहानी लिखिए और उसे दृश्यों में बाँटकर Storyboard तैयार कीजिए।</p>
+
+ <label>Your Story / कहानी</label>
+ <textarea id="story" placeholder="यहाँ अपनी पूरी कहानी लिखें..."></textarea>
+
+ <label>Video Language</label>
+ <select id="language">
+  <option>Hindi</option><option>Chhattisgarhi</option><option>English</option>
+ </select>
+
+ <label>Visual Style</label>
+ <select id="style">
+  <option>Realistic Cinematic</option>
+  <option>Hollywood Realistic VFX</option>
+  <option>Cartoon Animation</option>
+ </select>
+
+ <label>Video Format</label>
+ <select id="format">
+  <option>16:9 YouTube</option>
+  <option>9:16 Shorts / Reels</option>
+  <option>1:1 Square</option>
+ </select>
+
+ <label>Number of Scenes</label>
+ <select id="count">
+  <option value="4">4 Scenes</option>
+  <option value="6" selected>6 Scenes</option>
+  <option value="8">8 Scenes</option>
+  <option value="10">10 Scenes</option>
+ </select>
+
+ <button class="purple" onclick="makeStoryboard()">Create Storyboard →</button>
+ <div id="result"></div>
+ <p class="notice">यह अभी शुरुआती Storyboard Planner है। वास्तविक AI वीडियो जनरेशन अभी कनेक्ट नहीं है।</p>
+</section>
+
+<section class="section panel" id="projects">
+ <h2>📁 My Projects</h2>
+ <p class="muted">आपके इस ब्राउज़र में तैयार किए गए Storyboard यहाँ सेव होंगे।</p>
+ <div id="saved">अभी कोई प्रोजेक्ट सेव नहीं है।</div>
+</section>
+
+<section class="section" id="editor"><h2>✂️ Video Editor</h2><p class="muted">Professional editing workspace — Coming Soon.</p></section>
+<section class="section" id="photo"><h2>📸 Photo Studio</h2><p class="muted">AI Photo tools — Coming Soon.</p></section>
+<section class="section" id="vfx"><h2>⚡ Hollywood VFX</h2><p class="muted">Custom visual effects workspace — Coming Soon.</p></section>
+<section class="section" id="voice"><h2>🎙️ Voice Studio</h2><p class="muted">AI Voice tools — Coming Soon.</p></section>
+<section class="section" id="music"><h2>🎵 Music Studio</h2><p class="muted">AI Music tools — Coming Soon.</p></section>
+<section class="section" id="3d"><h2>🧊 3D Studio</h2><p class="muted">3D creation tools — Coming Soon.</p></section>
+<section class="section" id="image"><h2>🖼️ Image Generator</h2><p class="muted">AI Image tools — Coming Soon.</p></section>
 </main>
+
+<footer>© 2026 Bhaskar AI Studio · Imagine. Create. Inspire.</footer>
+
+<script>
+function toggleMenu(){
+ const d=document.getElementById('drawer');
+ d.style.display=d.style.display==='block'?'none':'block';
+}
+
+function makeStoryboard(){
+ const story=document.getElementById('story').value.trim();
+ const count=Number(document.getElementById('count').value);
+ const language=document.getElementById('language').value;
+ const style=document.getElementById('style').value;
+ const format=document.getElementById('format').value;
+ const result=document.getElementById('result');
+
+ if(story.length<20){
+  alert('कृपया कम से कम 20 अक्षरों की कहानी लिखें।');
+  return;
+ }
+
+ const parts=story.split(/(?<=[.!?।])\s+|\n+/).filter(x=>x.trim());
+ const scenes=[];
+ for(let i=0;i<count;i++){
+  const start=Math.floor(i*parts.length/count);
+  const end=Math.max(start+1,Math.floor((i+1)*parts.length/count));
+  scenes.push(parts.slice(start,end).join(' ')||'इस दृश्य के लिए कहानी का विस्तार करें।');
+ }
+
+ const safe=x=>x.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+ let html='<h3>आपका Storyboard तैयार है</h3>';
+ html+='<p class="muted">'+safe(style)+' · '+safe(format)+' · '+safe(language)+'</p>';
+ scenes.forEach((s,i)=>{
+  html+='<div class="scene"><h3>Scene '+(i+1)+'</h3><p>'+safe(s)+'</p><p class="muted">Visual direction: '+safe(style)+'. कहानी के अनुसार दृश्य तैयार करें।</p></div>';
+ });
+ html+='<button class="purple" onclick="saveProject()">Save Storyboard</button>';
+ result.innerHTML=html;
+ window.currentProject={story,scenes,language,style,format};
+}
+
+function saveProject(){
+ if(!window.currentProject)return;
+ try{
+  const list=JSON.parse(localStorage.getItem('bhaskarProjects')||'[]');
+  list.push({...window.currentProject,date:new Date().toLocaleString()});
+  localStorage.setItem('bhaskarProjects',JSON.stringify(list));
+  showProjects();
+  alert('Storyboard इस ब्राउज़र में सेव हो गया।');
+ }catch(e){alert('Storage उपलब्ध नहीं है।');}
+}
+
+function showProjects(){
+ try{
+  const list=JSON.parse(localStorage.getItem('bhaskarProjects')||'[]');
+  document.getElementById('saved').innerHTML=list.length?
+   list.map((p,i)=>'<div class="scene"><b>Project '+(i+1)+'</b><p>'+p.date+'</p><p>'+p.scenes.length+' Scenes · '+p.language+'</p></div>').join(''):
+   'अभी कोई प्रोजेक्ट सेव नहीं है।';
+ }catch(e){}
+}
+showProjects();
+</script>
 </body>
 </html>
