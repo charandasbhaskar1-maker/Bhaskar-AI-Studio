@@ -7,616 +7,137 @@
 <meta name="theme-color" content="#080b12">
 <title>Bhaskar AI Studio</title>
 <style>
-:root{
- --bg:#080b12;--panel:#141c2c;--panel2:#0c1422;
- --line:#303b52;--text:#f5f7ff;--muted:#aab5c9;
- --purple:#8057ff;--cyan:#29d9ff;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
- margin:0;background:var(--bg);color:var(--text);
- font-family:Arial,Helvetica,sans-serif
-}
-header{
- position:sticky;top:0;z-index:20;background:#0d1220ee;
- backdrop-filter:blur(12px);border-bottom:1px solid #293249;
- padding:13px 16px;display:flex;justify-content:space-between;
- align-items:center
-}
-.logo{font-size:20px;font-weight:800}
-.logo span{color:#9675ff}
-button{
- cursor:pointer;border:0;border-radius:11px;padding:12px 17px;
- font-weight:700;font-size:14px
-}
-button:focus-visible,a:focus-visible,input:focus-visible,
-textarea:focus-visible,select:focus-visible{
- outline:2px solid var(--cyan);outline-offset:2px
-}
-.menuBtn,.secondary{
- background:#20283a;color:white;border:1px solid #38435a
-}
-.primary{
- background:linear-gradient(100deg,#8057ff,#5940d9);
- color:white;box-shadow:0 7px 22px #8057ff35
-}
+:root{--bg:#080b12;--panel:#141c2c;--panel2:#0c1422;--line:#303b52;--text:#f5f7ff;--muted:#aab5c9;--purple:#8057ff;--cyan:#29d9ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+header{position:sticky;top:0;z-index:20;background:#0d1220ee;backdrop-filter:blur(12px);border-bottom:1px solid #293249;padding:13px 16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:800}.logo span{color:#9675ff}
+button{cursor:pointer;border:0;border-radius:11px;padding:12px 17px;font-weight:700;font-size:14px}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.menuBtn,.secondary{background:#20283a;color:white;border:1px solid #38435a}
+.primary{background:linear-gradient(100deg,#8057ff,#5940d9);color:white;box-shadow:0 7px 22px #8057ff35}
+button:disabled{opacity:.6;cursor:wait}
 main{max-width:1100px;margin:auto;padding:22px 16px}
-.hero{
- padding:30px 22px;border-radius:22px;
- background:radial-gradient(circle at 85% 15%,#23465a 0,transparent 34%),
- linear-gradient(135deg,#26194e,#111c35 60%,#10303a);
- border:1px solid #39365d
-}
+.hero{padding:30px 22px;border-radius:22px;background:radial-gradient(circle at 85% 15%,#23465a 0,transparent 34%),linear-gradient(135deg,#26194e,#111c35 60%,#10303a);border:1px solid #39365d}
 .hero small{color:var(--cyan);font-weight:bold;letter-spacing:2px}
-h1{font-size:36px;line-height:1.15;margin:15px 0}
-h2{font-size:24px;margin:0 0 12px}
-h3{font-size:18px}
+h1{font-size:36px;line-height:1.15;margin:15px 0}h2{font-size:24px;margin:0 0 12px}h3{font-size:18px}
 .muted{color:var(--muted);line-height:1.65}
 .section{margin-top:30px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.tool{
- background:var(--panel);border:1px solid var(--line);
- padding:17px;border-radius:16px;color:white;
- text-decoration:none;display:block;transition:.2s
-}
+.tool{background:var(--panel);border:1px solid var(--line);padding:17px;border-radius:16px;color:white;text-decoration:none;display:block;transition:.2s}
 .tool:hover{border-color:#806cff;transform:translateY(-2px)}
-.tool b{display:block;margin:10px 0}
-.tool p{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:0}
+.tool b{display:block;margin:10px 0}.tool p{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:0}
 .symbol{font-size:27px}
-#drawer{
- display:none;position:fixed;z-index:30;right:12px;top:68px;
- width:245px;padding:12px;background:#171e2e;
- border:1px solid #45506a;border-radius:15px;box-shadow:0 10px 35px #000
-}
-#drawer a{
- display:block;padding:12px;color:white;text-decoration:none;
- border-bottom:1px solid #30394c
-}
-.panel{
- background:var(--panel);border:1px solid var(--line);
- border-radius:17px;padding:18px
-}
-input,textarea,select{
- width:100%;padding:13px;background:#0c1220;
- border:1px solid #39445c;border-radius:10px;color:white;
- margin:8px 0 16px;font:inherit
-}
+#drawer{display:none;position:fixed;z-index:30;right:12px;top:68px;width:245px;padding:12px;background:#171e2e;border:1px solid #45506a;border-radius:15px;box-shadow:0 10px 35px #000}
+#drawer a{display:block;padding:12px;color:white;text-decoration:none;border-bottom:1px solid #30394c}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:18px}
+input,textarea,select{width:100%;padding:13px;background:#0c1220;border:1px solid #39445c;border-radius:10px;color:white;margin:8px 0 16px;font:inherit}
 textarea{min-height:145px;resize:vertical}
 label{font-size:14px;color:#d4dced;font-weight:600}
 .formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
-.scene{
- padding:15px;margin-top:13px;background:var(--panel2);
- border:1px solid #35415b;border-radius:13px
-}
-.scene h3{color:var(--cyan);margin:0 0 12px}
-.scene p{font-size:14px;line-height:1.6;color:#d8e0ee;margin:8px 0}
-.scene b{color:#fff}
-.notice{font-size:12px;color:#f6c96b;line-height:1.6}
-.pill{
- display:inline-block;padding:5px 9px;border-radius:30px;
- background:#252044;color:#c9bbff;font-size:11px;margin:3px
-}
+.scene{padding:15px;margin-top:13px;background:var(--panel2);border:1px solid #35415b;border-radius:13px}
+.scene h3{color:var(--cyan);margin:0 0 12px}.scene p{font-size:14px;line-height:1.6;color:#d8e0ee;margin:8px 0;overflow-wrap:anywhere}
+.scene b{color:#fff}.notice{font-size:12px;color:#f6c96b;line-height:1.6}
+.pill{display:inline-block;padding:5px 9px;border-radius:30px;background:#252044;color:#c9bbff;font-size:11px;margin:3px}
 .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
 .empty{padding:14px;color:var(--muted);background:var(--panel2);border-radius:10px}
 footer{text-align:center;padding:32px 15px;color:#78869d;font-size:12px}
-@media(min-width:700px){
- .grid{grid-template-columns:repeat(3,1fr)}
- h1{font-size:48px}.hero{padding:50px}
- .formgrid{grid-template-columns:1fr 1fr 1fr}
-}
-@media(max-width:420px){
- .formgrid{grid-template-columns:1fr}
- h1{font-size:31px}.panel{padding:15px}
-}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}h1{font-size:48px}.hero{padding:50px}.formgrid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:420px){.formgrid{grid-template-columns:1fr}h1{font-size:31px}.panel{padding:15px}}
 </style>
 </head>
 <body>
-
-<header>
- <div class="logo">✦ Bhaskar <span>AI Studio</span></div>
- <button class="menuBtn" onclick="toggleMenu()">☰ Menu</button>
-</header>
-
+<header><div class="logo">✦ Bhaskar <span>AI Studio</span></div><button class="menuBtn" onclick="toggleMenu()">☰ Menu</button></header>
 <nav id="drawer">
- <a href="#home" onclick="toggleMenu()">Home</a>
- <a href="#tools" onclick="toggleMenu()">All Tools</a>
- <a href="#creator" onclick="toggleMenu()">AI Video Creator</a>
- <a href="#character" onclick="toggleMenu()">Character Director</a>
- <a href="#projects" onclick="toggleMenu()">My Projects & Backup</a>
+<a href="#home" onclick="toggleMenu()">Home</a><a href="#tools" onclick="toggleMenu()">All Tools</a><a href="#creator" onclick="toggleMenu()">AI Video Creator</a><a href="#character" onclick="toggleMenu()">Character Director</a><a href="#projects" onclick="toggleMenu()">My Projects & Backup</a>
 </nav>
-
 <main>
-
 <section class="hero" id="home">
- <small>YOUR ALL-IN-ONE CREATIVE STUDIO</small>
- <h1>Create Anything.<br>Bring Imagination to Life.</h1>
- <p class="muted">
- AI Video, Professional Editing, Photo Studio, Hollywood VFX,
- Voice and Music — एक ही जगह पर।
- </p>
- <button class="primary" onclick="goTo('creator')">Start Creating →</button>
+<small>YOUR ALL-IN-ONE CREATIVE STUDIO</small><h1>Create Anything.<br>Bring Imagination to Life.</h1>
+<p class="muted">AI Video, Professional Editing, Photo Studio, Hollywood VFX, Voice and Music — एक ही जगह पर।</p>
+<button class="primary" onclick="goTo('creator')">Start Creating →</button>
 </section>
-
-<section class="section" id="tools">
- <h2>Your Creative Studio</h2>
- <div class="grid">
-  <a class="tool" href="#creator"><div class="symbol">🎬</div><b>AI Video Creator</b><p>कहानी से scene-wise production plan बनाएँ।</p></a>
-  <a class="tool" href="#editor"><div class="symbol">✂️</div><b>Professional Video Editor</b><p>Timeline और editing workspace.</p></a>
-  <a class="tool" href="#photo"><div class="symbol">📸</div><b>AI Photo Studio</b><p>Photo enhancement और creative editing.</p></a>
-  <a class="tool" href="#vfx"><div class="symbol">⚡</div><b>Hollywood VFX</b><p>Fire, lightning, portals और visual effects.</p></a>
-  <a class="tool" href="#voice"><div class="symbol">🎙️</div><b>AI Voice Studio</b><p>Voiceover, narration और dialogue.</p></a>
-  <a class="tool" href="#music"><div class="symbol">🎵</div><b>AI Music Studio</b><p>Music और sound design workspace.</p></a>
-  <a class="tool" href="#3d"><div class="symbol">🧊</div><b>3D & Animation</b><p>3D scenes और animation tools.</p></a>
-  <a class="tool" href="#image"><div class="symbol">🖼️</div><b>AI Image Generator</b><p>Text prompt से image planning.</p></a>
-  <a class="tool" href="#projects"><div class="symbol">📁</div><b>My Projects</b><p>Projects और backup management.</p></a>
- </div>
-</section>
-
+<section class="section" id="tools"><h2>Your Creative Studio</h2><div class="grid">
+<a class="tool" href="#creator"><div class="symbol">🎬</div><b>AI Video Creator</b><p>कहानी से scene-wise production plan बनाएँ।</p></a>
+<a class="tool" href="#editor"><div class="symbol">✂️</div><b>Professional Video Editor</b><p>Timeline और editing workspace.</p></a>
+<a class="tool" href="#photo"><div class="symbol">📸</div><b>AI Photo Studio</b><p>Photo enhancement और creative editing.</p></a>
+<a class="tool" href="#vfx"><div class="symbol">⚡</div><b>Hollywood VFX</b><p>Fire, lightning, portals और visual effects.</p></a>
+<a class="tool" href="#voice"><div class="symbol">🎙️</div><b>AI Voice Studio</b><p>Voiceover, narration और dialogue.</p></a>
+<a class="tool" href="#music"><div class="symbol">🎵</div><b>AI Music Studio</b><p>Music और sound design workspace.</p></a>
+<a class="tool" href="#3d"><div class="symbol">🧊</div><b>3D & Animation</b><p>3D scenes और animation tools.</p></a>
+<a class="tool" href="#image"><div class="symbol">🖼️</div><b>AI Image Generator</b><p>Text prompt से image planning.</p></a>
+<a class="tool" href="#projects"><div class="symbol">📁</div><b>My Projects</b><p>Projects और backup management.</p></a>
+</div></section>
 <section class="section panel" id="creator">
- <h2>🎬 AI Video Creator</h2>
- <p class="muted">
- अपनी कहानी लिखिए। Studio उसे scenes, camera direction,
- acting, dialogue और sound plan में बाँटेगा।
- </p>
-
- <label for="story">Your Story / कहानी</label>
- <textarea id="story" placeholder="अपनी कहानी यहाँ लिखें..."></textarea>
-
- <div class="formgrid">
-  <div>
-   <label for="language">Video Language</label>
-   <select id="language">
-    <option>Hindi</option><option>Chhattisgarhi</option><option>English</option>
-   </select>
-  </div>
-  <div>
-   <label for="style">Visual Style</label>
-   <select id="style">
-    <option>Photorealistic Cinematic</option>
-    <option>Hollywood Realistic VFX</option>
-    <option>3D Animation</option><option>2D Cartoon</option>
-    <option>Anime</option><option>Documentary</option>
-    <option>Game Cinematic</option>
-   </select>
-  </div>
-  <div>
-   <label for="format">Video Format</label>
-   <select id="format">
-    <option>16:9 YouTube</option>
-    <option>9:16 Shorts / Reels</option>
-    <option>1:1 Square</option>
-   </select>
-  </div>
-  <div>
-   <label for="count">Number of Scenes</label>
-   <select id="count">
-    <option value="4">4 Scenes</option>
-    <option value="6" selected>6 Scenes</option>
-    <option value="8">8 Scenes</option>
-    <option value="10">10 Scenes</option>
-   </select>
-  </div>
- </div>
-
- <button class="primary" onclick="makeStoryboard()">Create Storyboard →</button>
- <div id="result" aria-live="polite"></div>
- <p class="notice">
- यह version storyboard और production plan बनाता है।
- असली AI video/image/audio generation के लिए AI model,
- backend और processing server जोड़ना होगा।
- </p>
+<h2>🎬 AI Video Creator</h2><p class="muted">अपनी कहानी लिखिए। Studio उसे Backend API के माध्यम से scenes और visual prompts में बाँटेगा।</p>
+<label for="story">Your Story / कहानी</label><textarea id="story" placeholder="अपनी कहानी यहाँ लिखें..."></textarea>
+<div class="formgrid">
+<div><label for="language">Video Language</label><select id="language"><option>Hindi</option><option>Chhattisgarhi</option><option>English</option></select></div>
+<div><label for="style">Visual Style</label><select id="style"><option>Photorealistic Cinematic</option><option>Hollywood Realistic VFX</option><option>3D Animation</option><option>2D Cartoon</option><option>Anime</option><option>Documentary</option><option>Game Cinematic</option></select></div>
+<div><label for="format">Video Format</label><select id="format"><option>16:9 YouTube</option><option>9:16 Shorts / Reels</option><option>1:1 Square</option></select></div>
+<div><label for="count">Number of Scenes</label><select id="count"><option value="4">4 Scenes</option><option value="6" selected>6 Scenes</option><option value="8">8 Scenes</option><option value="10">10 Scenes</option></select></div>
+</div>
+<button class="primary" id="createBtn" onclick="makeStoryboard()">Create Storyboard →</button><div id="result" aria-live="polite"></div>
+<p class="notice">यह संस्करण Backend से storyboard planning करता है। वास्तविक AI video/image/audio generation अभी connected नहीं है।</p>
 </section>
-
 <section class="section panel" id="character">
- <h2>🎭 Character Director</h2>
- <p class="muted">
- मुख्य किरदार की पहचान और continuity के लिए reference notes बनाएँ।
- </p>
-
- <div class="formgrid">
-  <div><label for="charName">Character Name</label><input id="charName" placeholder="जैसे: आरव"></div>
-  <div><label for="charAge">Age / उम्र</label><input id="charAge" placeholder="जैसे: 25 वर्ष"></div>
-  <div><label for="charLook">Face & Appearance</label><input id="charLook" placeholder="चेहरा, बाल, कद, पहचान"></div>
-  <div>
-   <label for="charVoice">Voice</label>
-   <select id="charVoice">
-    <option>Natural Male</option><option>Natural Female</option>
-    <option>Child Voice</option><option>Elderly Voice</option>
-    <option>User Defined</option>
-   </select>
-  </div>
-  <div><label for="charClothes">Starting Costume</label><input id="charClothes" placeholder="जैसे: सफेद कुर्ता"></div>
-  <div><label for="charPersonality">Personality</label><input id="charPersonality" placeholder="जैसे: साहसी, शांत"></div>
- </div>
-
- <button class="secondary" onclick="saveCharacter()">Save Character Settings</button>
- <p class="notice">
- ये settings इस browser में सेव होंगी। असली face-lock generation
- के लिए reference-image और AI backend जोड़ना होगा।
- </p>
- <div id="characterStatus" class="muted"></div>
+<h2>🎭 Character Director</h2><p class="muted">मुख्य किरदार की पहचान और continuity के लिए reference notes बनाएँ।</p>
+<div class="formgrid">
+<div><label for="charName">Character Name</label><input id="charName" placeholder="जैसे: आरव"></div>
+<div><label for="charAge">Age / उम्र</label><input id="charAge" placeholder="जैसे: 25 वर्ष"></div>
+<div><label for="charLook">Face & Appearance</label><input id="charLook" placeholder="चेहरा, बाल, कद, पहचान"></div>
+<div><label for="charVoice">Voice</label><select id="charVoice"><option>Natural Male</option><option>Natural Female</option><option>Child Voice</option><option>Elderly Voice</option><option>User Defined</option></select></div>
+<div><label for="charClothes">Starting Costume</label><input id="charClothes" placeholder="जैसे: सफेद कुर्ता"></div>
+<div><label for="charPersonality">Personality</label><input id="charPersonality" placeholder="जैसे: साहसी, शांत"></div>
+</div>
+<button class="secondary" onclick="saveCharacter()">Save Character Settings</button>
+<p class="notice">ये settings इस browser में सेव होंगी। असली face-lock generation के लिए reference-image और AI backend जोड़ना होगा।</p><div id="characterStatus" class="muted"></div>
 </section>
-
 <section class="section panel" id="projects">
- <h2>📁 My Projects & Backup</h2>
- <p class="muted">
- Projects इस browser में सेव होते हैं। अपनी backup JSON फाइल
- डाउनलोड करके फोन में सुरक्षित रखें।
- </p>
-
- <div class="actions">
-  <button class="primary" onclick="exportBackup()">⬇ Download Backup</button>
-  <button class="secondary" onclick="document.getElementById('backupFile').click()">↥ Restore Backup</button>
-  <input id="backupFile" type="file" accept=".json,application/json"
-   style="display:none" onchange="importBackup(event)">
- </div>
-
- <p class="notice">
- Backup में saved projects और character settings शामिल होंगे।
- Restore करने पर मौजूदा projects भी सुरक्षित रहेंगे।
- </p>
- <div id="saved" class="empty">अभी कोई project सेव नहीं है।</div>
+<h2>📁 My Projects & Backup</h2><p class="muted">Projects इस browser में सेव होते हैं। अपनी backup JSON फाइल डाउनलोड करके फोन में सुरक्षित रखें।</p>
+<div class="actions"><button class="primary" onclick="exportBackup()">⬇ Download Backup</button><button class="secondary" onclick="document.getElementById('backupFile').click()">↥ Restore Backup</button><input id="backupFile" type="file" accept=".json,application/json" style="display:none" onchange="importBackup(event)"></div>
+<p class="notice">Backup में saved projects और character settings शामिल होंगे। Restore करने पर मौजूदा projects भी सुरक्षित रहेंगे।</p><div id="saved" class="empty">अभी कोई project सेव नहीं है।</div>
 </section>
-
-<section class="section panel" id="editor">
- <h2>✂️ Video Editor</h2>
- <p class="muted">Multi-track timeline, trim, split, transitions, titles और audio mixing — अगला development phase.</p>
- <span class="pill">Planned</span>
-</section>
-
-<section class="section panel" id="photo">
- <h2>📸 Photo Studio</h2>
- <p class="muted">Portrait enhancement, background tools, restoration और poster design — अगला development phase.</p>
- <span class="pill">Planned</span>
-</section>
-
-<section class="section panel" id="vfx">
- <h2>⚡ Hollywood VFX</h2>
- <p class="muted">Compositing, masking, particles, fire, smoke और cinematic effects — अगला development phase.</p>
- <span class="pill">Planned</span>
-</section>
-
-<section class="section panel" id="voice">
- <h2>🎙️ Voice Studio</h2>
- <p class="muted">Narration, character voices, dubbing और lip-sync workflow — अगला development phase.</p>
- <span class="pill">Planned</span>
-</section>
-
-<section class="section panel" id="music">
- <h2>🎵 Music Studio</h2>
- <p class="muted">Background score, songs और sound effects workflow — अगला development phase.</p>
- <span class="pill">Planned</span>
-</section>
-
-<section class="section panel" id="3d">
- <h2>🧊 3D Studio</h2>
- <p class="muted">3D assets, animation और motion graphics workflow — अगला development phase.</p>
- <span class="pill">Planned</span>
-</section>
-
-<section class="section panel" id="image">
- <h2>🖼️ Image Generator</h2>
- <p class="muted">Prompt-based image generation workflow — AI model connection आने पर सक्रिय होगा।</p>
- <span class="pill">Planned</span>
-</section>
-
+<section class="section panel" id="editor"><h2>✂️ Video Editor</h2><p class="muted">Multi-track timeline, trim, split, transitions, titles और audio mixing — अगला development phase.</p><span class="pill">Planned</span></section>
+<section class="section panel" id="photo"><h2>📸 Photo Studio</h2><p class="muted">Portrait enhancement, background tools, restoration और poster design — अगला development phase.</p><span class="pill">Planned</span></section>
+<section class="section panel" id="vfx"><h2>⚡ Hollywood VFX</h2><p class="muted">Compositing, masking, particles, fire, smoke और cinematic effects — अगला development phase.</p><span class="pill">Planned</span></section>
+<section class="section panel" id="voice"><h2>🎙️ Voice Studio</h2><p class="muted">Narration, character voices, dubbing और lip-sync workflow — अगला development phase.</p><span class="pill">Planned</span></section>
+<section class="section panel" id="music"><h2>🎵 Music Studio</h2><p class="muted">Background score, songs और sound effects workflow — अगला development phase.</p><span class="pill">Planned</span></section>
+<section class="section panel" id="3d"><h2>🧊 3D Studio</h2><p class="muted">3D assets, animation और motion graphics workflow — अगला development phase.</p><span class="pill">Planned</span></section>
+<section class="section panel" id="image"><h2>🖼️ Image Generator</h2><p class="muted">Prompt-based image generation workflow — AI model connection आने पर सक्रिय होगा।</p><span class="pill">Planned</span></section>
 </main>
-
 <footer>© 2026 Bhaskar AI Studio · Imagine. Create. Inspire.</footer>
-
 <script>
-function toggleMenu(){
- const drawer=document.getElementById('drawer');
- drawer.style.display=drawer.style.display==='block'?'none':'block';
-}
-
-function goTo(id){
- document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-function safe(value){
- return String(value??'').replace(/[&<>"']/g,c=>({
-  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
- }[c]));
-}
-
-function getCharacter(){
- return {
-  name:document.getElementById('charName').value.trim(),
-  age:document.getElementById('charAge').value.trim(),
-  look:document.getElementById('charLook').value.trim(),
-  voice:document.getElementById('charVoice').value,
-  clothes:document.getElementById('charClothes').value.trim(),
-  personality:document.getElementById('charPersonality').value.trim()
- };
-}
-
-function saveCharacter(){
- const character=getCharacter();
- if(!character.name){
-  alert('पहले Character Name लिखें।');
-  return;
- }
+const API_BASE='https://bhaskar-ai-studio.onrender.com';
+function toggleMenu(){const d=document.getElementById('drawer');d.style.display=d.style.display==='block'?'none':'block';}
+function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function safe(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function getCharacter(){return{name:document.getElementById('charName').value.trim(),age:document.getElementById('charAge').value.trim(),look:document.getElementById('charLook').value.trim(),voice:document.getElementById('charVoice').value,clothes:document.getElementById('charClothes').value.trim(),personality:document.getElementById('charPersonality').value.trim()};}
+function saveCharacter(){const c=getCharacter();if(!c.name){alert('पहले Character Name लिखें।');return;}try{localStorage.setItem('bhaskarCharacter',JSON.stringify(c));document.getElementById('characterStatus').textContent='Character settings इस browser में सेव हो गई हैं।';}catch(e){alert('Browser storage उपलब्ध नहीं है।');}}
+function loadCharacter(){try{const c=JSON.parse(localStorage.getItem('bhaskarCharacter')||'null');if(!c)return;document.getElementById('charName').value=c.name||'';document.getElementById('charAge').value=c.age||'';document.getElementById('charLook').value=c.look||'';document.getElementById('charVoice').value=c.voice||'Natural Male';document.getElementById('charClothes').value=c.clothes||'';document.getElementById('charPersonality').value=c.personality||'';document.getElementById('characterStatus').textContent='आपकी पिछली Character settings लोड हो गई हैं।';}catch(e){}}
+async function makeStoryboard(){
+ const story=document.getElementById('story').value.trim(),requestedCount=Number(document.getElementById('count').value),language=document.getElementById('language').value,style=document.getElementById('style').value,format=document.getElementById('format').value,result=document.getElementById('result'),button=document.getElementById('createBtn');
+ if(story.length<20){alert('कृपया कम से कम 20 अक्षरों की कहानी लिखें।');return;}
+ button.disabled=true;button.textContent='Creating...';result.innerHTML='<p class="muted">कहानी Backend पर भेजी जा रही है। Free server को शुरू होने में थोड़ा समय लग सकता है...</p>';
  try{
-  localStorage.setItem('bhaskarCharacter',JSON.stringify(character));
-  document.getElementById('characterStatus').textContent=
-   'Character settings इस browser में सेव हो गई हैं।';
- }catch(e){
-  alert('Browser storage उपलब्ध नहीं है।');
- }
+  const response=await fetch(API_BASE+'/api/storyboard',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({story,language,style,scenes:requestedCount})});
+  if(!response.ok)throw new Error('API '+response.status+' '+(await response.text()).slice(0,180));
+  const data=await response.json();if(!Array.isArray(data.scenes))throw new Error('Backend response में scenes नहीं मिले।');
+  const character=getCharacter(),scenes=data.scenes,shots=['Wide establishing shot','Medium character shot','Close-up on facial expression','Tracking shot following action','Over-the-shoulder dialogue shot','Cinematic low-angle shot','Slow emotional push-in','Dynamic action shot','Wide environment shot','Final close-up'];
+  let html='<h3>Storyboard तैयार है — '+scenes.length+' Scenes</h3><p class="muted">'+safe(style)+' · '+safe(format)+' · '+safe(language)+'</p>';
+  scenes.forEach((s,i)=>{html+='<div class="scene"><h3>Scene '+(i+1)+' / '+scenes.length+'</h3><p><b>Story Beat:</b> '+safe(s.story_beat)+'</p><p><b>Visual Prompt:</b> '+safe(s.visual_prompt)+'</p><p><b>Camera:</b> '+safe(shots[i%shots.length])+'</p><p><b>Acting:</b> कहानी के अनुसार चेहरे के भाव, आँखों की दिशा और स्वाभाविक body language रखें।</p><p><b>Voice & Dialogue:</b> '+safe(language)+' में narration और dialogue की योजना बनाएँ।</p><p><b>Music & SFX:</b> दृश्य के mood के अनुसार background score और sound effects।</p><p><b>Continuity:</b> '+(character.name?'किरदार '+safe(character.name)+' की पहचान सभी scenes में समान रखें। Costume: '+safe(character.clothes||'कहानी के अनुसार')+'।':'सभी scenes में किरदार की पहचान समान रखें।')+'</p></div>';});
+  html+='<div class="actions"><button class="primary" onclick="saveProject()">Save Storyboard</button><button class="secondary" onclick="copyStoryboard()">Copy Storyboard</button></div>';result.innerHTML=html;
+  window.currentProject={story,scenes:scenes.map(s=>s.story_beat),visualPrompts:scenes.map(s=>s.visual_prompt),language,style,format,character,date:new Date().toLocaleString()};
+ }catch(e){console.error(e);result.innerHTML='<p class="notice">Backend से संपर्क नहीं हो पाया। '+safe(e.message)+' इंटरनेट जाँचें और थोड़ी देर बाद फिर कोशिश करें।</p>';}
+ finally{button.disabled=false;button.textContent='Create Storyboard →';}
 }
-
-function loadCharacter(){
- try{
-  const c=JSON.parse(localStorage.getItem('bhaskarCharacter')||'null');
-  if(!c)return;
-  document.getElementById('charName').value=c.name||'';
-  document.getElementById('charAge').value=c.age||'';
-  document.getElementById('charLook').value=c.look||'';
-  document.getElementById('charVoice').value=c.voice||'Natural Male';
-  document.getElementById('charClothes').value=c.clothes||'';
-  document.getElementById('charPersonality').value=c.personality||'';
-  document.getElementById('characterStatus').textContent=
-   'आपकी पिछली Character settings लोड हो गई हैं।';
- }catch(e){}
-}
-
-function makeStoryboard(){
- const story=document.getElementById('story').value.trim();
- const requestedCount=Number(document.getElementById('count').value);
- const language=document.getElementById('language').value;
- const style=document.getElementById('style').value;
- const format=document.getElementById('format').value;
- const result=document.getElementById('result');
-
- if(story.length<20){
-  alert('कृपया कम से कम 20 अक्षरों की कहानी लिखें।');
-  return;
- }
-
- let beats=story.split(/(?<=[.!?।])\s+|\n+/)
-  .map(x=>x.trim()).filter(Boolean);
-
- if(!beats.length)beats=[story];
-
- while(beats.length<requestedCount){
-  let index=-1,longest=0;
-  beats.forEach((beat,i)=>{
-   const n=beat.split(/\s+/).length;
-   if(n>longest&&n>=4){longest=n;index=i;}
-  });
-  if(index<0)break;
-  const words=beats[index].split(/\s+/);
-  const mid=Math.ceil(words.length/2);
-  beats.splice(index,1,
-   words.slice(0,mid).join(' '),
-   words.slice(mid).join(' ')
-  );
- }
-
- const sceneCount=Math.min(requestedCount,beats.length);
- const scenes=[];
-
- for(let i=0;i<sceneCount;i++){
-  const a=Math.floor(i*beats.length/sceneCount);
-  const b=Math.floor((i+1)*beats.length/sceneCount);
-  scenes.push(beats.slice(a,b).join(' '));
- }
-
- const character=getCharacter();
- const shots=[
-  'Wide establishing shot','Medium character shot',
-  'Close-up on facial expression','Tracking shot following action',
-  'Over-the-shoulder dialogue shot','Cinematic low-angle shot',
-  'Slow emotional push-in','Dynamic action shot',
-  'Wide environment shot','Final close-up'
- ];
- const lights=[
-  'Natural cinematic lighting','Soft dramatic lighting',
-  'Golden-hour lighting','Moody atmospheric lighting',
-  'Realistic environmental lighting'
- ];
-
- let html='<h3>Storyboard तैयार है — '+sceneCount+' Scenes</h3>';
- html+='<p class="muted">'+safe(style)+' · '+safe(format)+' · '+safe(language)+'</p>';
-
- scenes.forEach((scene,i)=>{
-  html+='<div class="scene"><h3>Scene '+(i+1)+' / '+sceneCount+'</h3>';
-  html+='<p><b>Story Beat:</b> '+safe(scene)+'</p>';
-  html+='<p><b>Camera:</b> '+safe(shots[i%shots.length])+'</p>';
-  html+='<p><b>Visual Direction:</b> '+safe(style)+
-   ', detailed environment, '+safe(lights[i%lights.length])+
-   ', cinematic composition.</p>';
-  html+='<p><b>Acting:</b> कहानी के अनुसार चेहरे के भाव, आँखों की दिशा, body language और स्वाभाविक movement रखें।</p>';
-  html+='<p><b>Voice & Dialogue:</b> '+safe(language)+
-   ' में scene के mood के अनुसार dialogue या narration तैयार करें।</p>';
-  html+='<p><b>Music & SFX:</b> दृश्य के भाव के अनुसार background score और वातावरण की आवाज़ें।</p>';
-
-  if(character.name){
-   html+='<p><b>Character Lock:</b> '+safe(character.name)+
-    '; उम्र: '+safe(character.age||'स्थिर रखें')+
-    '; पहचान: '+safe(character.look||'reference के अनुसार स्थिर')+
-    '; आवाज़: '+safe(character.voice)+
-    '; costume: '+safe(character.clothes||'कहानी के अनुसार')+
-    '; personality: '+safe(character.personality||'कहानी के अनुसार')+
-    '. चेहरा, उम्र और पहचान सभी scenes में समान रखें। कहानी में समय/स्थान बदलने पर ही costume बदलें।</p>';
-  }else{
-   html+='<p><b>Continuity:</b> मुख्य किरदार का चेहरा, उम्र, बाल और आवाज़ सभी scenes में समान रखें। कहानी में समय या परिस्थिति बदलने पर ही कपड़े बदलें।</p>';
-  }
-  html+='</div>';
- });
-
- html+='<div class="actions">';
- html+='<button class="primary" onclick="saveProject()">Save Storyboard</button>';
- html+='<button class="secondary" onclick="copyStoryboard()">Copy Storyboard</button>';
- html+='</div>';
-
- result.innerHTML=html;
-
- window.currentProject={
-  story,scenes,language,style,format,character,
-  date:new Date().toLocaleString()
- };
-}
-
-function storyboardText(){
- if(!window.currentProject)return '';
- const p=window.currentProject;
- return 'Bhaskar AI Studio Storyboard\n'+
-  p.scenes.map((s,i)=>'Scene '+(i+1)+': '+s).join('\n\n')+
-  '\n\nStyle: '+p.style+
-  '\nLanguage: '+p.language+
-  '\nFormat: '+p.format;
-}
-
-async function copyStoryboard(){
- const text=storyboardText();
- if(!text){
-  alert('पहले storyboard बनाएँ।');
-  return;
- }
- try{
-  await navigator.clipboard.writeText(text);
-  alert('Storyboard copy हो गया।');
- }catch(e){
-  alert('Copy उपलब्ध नहीं हुआ।');
- }
-}
-
-function saveProject(){
- if(!window.currentProject){
-  alert('पहले storyboard बनाएँ।');
-  return;
- }
- try{
-  const list=JSON.parse(localStorage.getItem('bhaskarProjects')||'[]');
-  list.push(window.currentProject);
-  localStorage.setItem('bhaskarProjects',JSON.stringify(list));
-  showProjects();
-  alert('Project इस browser में सेव हो गया।');
- }catch(e){
-  alert('Browser storage उपलब्ध नहीं है।');
- }
-}
-
-function showProjects(){
- try{
-  const list=JSON.parse(localStorage.getItem('bhaskarProjects')||'[]');
-  document.getElementById('saved').innerHTML=list.length?
-   list.map((p,i)=>
-    '<div class="scene">'+
-    '<b>Project '+(i+1)+'</b>'+
-    '<p>'+safe(p.date||'')+'</p>'+
-    '<p>'+(Array.isArray(p.scenes)?p.scenes.length:0)+
-    ' scenes · '+safe(p.language||'')+'</p>'+
-    '<p>'+safe(String(p.story||'').slice(0,180))+'</p>'+
-    '</div>'
-   ).join(''):
-   'अभी कोई project सेव नहीं है।';
- }catch(e){
-  document.getElementById('saved').textContent=
-   'Projects लोड नहीं हो सके।';
- }
-}
-
-/* PROJECT BACKUP DOWNLOAD */
-function exportBackup(){
- try{
-  const data={
-   app:"Bhaskar AI Studio",
-   version:1,
-   exportedAt:new Date().toISOString(),
-   projects:JSON.parse(localStorage.getItem('bhaskarProjects')||'[]'),
-   character:JSON.parse(localStorage.getItem('bhaskarCharacter')||'null')
-  };
-
-  const blob=new Blob(
-   [JSON.stringify(data,null,2)],
-   {type:'application/json'}
-  );
-
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;
-  a.download='Bhaskar-AI-Studio-Backup-'+
-   new Date().toISOString().slice(0,10)+'.json';
-
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-  alert('Backup फाइल डाउनलोड करने की प्रक्रिया शुरू हो गई है।');
- }catch(e){
-  alert('Backup नहीं बन पाया। कृपया दोबारा कोशिश करें।');
- }
-}
-
-/* PROJECT BACKUP RESTORE */
-function importBackup(event){
- const file=event.target.files&&event.target.files[0];
- if(!file)return;
-
- const reader=new FileReader();
-
- reader.onload=function(){
-  try{
-   const data=JSON.parse(String(reader.result||''));
-
-   if(data.app!=='Bhaskar AI Studio'||
-      !Array.isArray(data.projects)){
-    throw new Error('Invalid backup');
-   }
-
-   if(!confirm(
-    'Backup के '+data.projects.length+
-    ' projects इस browser में जोड़ें? मौजूदा projects सुरक्षित रहेंगे।'
-   )){
-    return;
-   }
-
-   const current=JSON.parse(
-    localStorage.getItem('bhaskarProjects')||'[]'
-   );
-
-   const combined=current.concat(data.projects);
-
-   localStorage.setItem(
-    'bhaskarProjects',
-    JSON.stringify(combined)
-   );
-
-   if(data.character){
-    localStorage.setItem(
-     'bhaskarCharacter',
-     JSON.stringify(data.character)
-    );
-   }
-
-   showProjects();
-   loadCharacter();
-
-   alert('Backup सफलतापूर्वक Restore हो गया।');
-
-  }catch(e){
-   alert('यह सही Bhaskar AI Studio Backup JSON फाइल नहीं है।');
-  }finally{
-   event.target.value='';
-  }
- };
-
- reader.onerror=function(){
-  alert('फाइल पढ़ी नहीं जा सकी।');
-  event.target.value='';
- };
-
- reader.readAsText(file);
-}
-
-showProjects();
-loadCharacter();
+function storyboardText(){if(!window.currentProject)return'';const p=window.currentProject;return'Bhaskar AI Studio Storyboard\n'+p.scenes.map((s,i)=>'Scene '+(i+1)+': '+s+(p.visualPrompts&&p.visualPrompts[i]?'\nVisual Prompt: '+p.visualPrompts[i]:'')).join('\n\n')+'\n\nStyle: '+p.style+'\nLanguage: '+p.language+'\nFormat: '+p.format;}
+async function copyStoryboard(){const t=storyboardText();if(!t){alert('पहले storyboard बनाएँ।');return;}try{await navigator.clipboard.writeText(t);alert('Storyboard copy हो गया।');}catch(e){alert('Copy उपलब्ध नहीं हुआ।');}}
+function saveProject(){if(!window.currentProject){alert('पहले storyboard बनाएँ।');return;}try{const a=JSON.parse(localStorage.getItem('bhaskarProjects')||'[]');a.push(window.currentProject);localStorage.setItem('bhaskarProjects',JSON.stringify(a));showProjects();alert('Project इस browser में सेव हो गया।');}catch(e){alert('Browser storage उपलब्ध नहीं है।');}}
+function showProjects(){try{const a=JSON.parse(localStorage.getItem('bhaskarProjects')||'[]');document.getElementById('saved').innerHTML=a.length?a.map((p,i)=>'<div class="scene"><b>Project '+(i+1)+'</b><p>'+safe(p.date||'')+'</p><p>'+(Array.isArray(p.scenes)?p.scenes.length:0)+' scenes · '+safe(p.language||'')+'</p><p>'+safe(String(p.story||'').slice(0,180))+'</p></div>').join(''):'अभी कोई project सेव नहीं है।';}catch(e){document.getElementById('saved').textContent='Projects लोड नहीं हो सके।';}}
+function exportBackup(){try{const d={app:'Bhaskar AI Studio',version:1,exportedAt:new Date().toISOString(),projects:JSON.parse(localStorage.getItem('bhaskarProjects')||'[]'),character:JSON.parse(localStorage.getItem('bhaskarCharacter')||'null')};const blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Bhaskar-AI-Studio-Backup-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);alert('Backup download शुरू हो गया है।');}catch(e){alert('Backup नहीं बन पाया।');}}
+function importBackup(event){const f=event.target.files&&event.target.files[0];if(!f)return;const r=new FileReader();r.onload=function(){try{const d=JSON.parse(String(r.result||''));if(d.app!=='Bhaskar AI Studio'||!Array.isArray(d.projects))throw Error('Invalid');if(!confirm('Backup के '+d.projects.length+' projects जोड़ें? मौजूदा projects सुरक्षित रहेंगे।'))return;const a=JSON.parse(localStorage.getItem('bhaskarProjects')||'[]');localStorage.setItem('bhaskarProjects',JSON.stringify(a.concat(d.projects)));if(d.character)localStorage.setItem('bhaskarCharacter',JSON.stringify(d.character));showProjects();loadCharacter();alert('Backup Restore हो गया।');}catch(e){alert('यह सही Bhaskar AI Studio Backup JSON फाइल नहीं है।');}finally{event.target.value='';}};r.onerror=()=>alert('फाइल पढ़ी नहीं जा सकी।');r.readAsText(f);}
+showProjects();loadCharacter();
 </script>
-
 </body>
 </html>
